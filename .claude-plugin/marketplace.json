@@ -1,0 +1,5 @@
+{
+  "name": "clawd-pet",
+  "owner": { "name": "Lambdaderta" },
+  "plugins": [{ "name": "prompt-pet", "source": "./" }]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "prompt-pet",
+  "version": "0.1.0",
+  "description": "A small pet above the prompt: mood follows your 5h limit and reacts to tool results",
+  "types": "./types/index.d.ts"
+}
