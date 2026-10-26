@@ -32,7 +32,7 @@ export type PetName = 'clawd' | 'capybara'
 const DEFAULT_PET: PetName = 'clawd'
 const PET_NAMES = ['clawd', 'capybara'] as const satisfies readonly PetName[]
 
-const PAINT: Record<string, Color> = { c: 'claude', o: '#E8913A', y: '#F2C744' }
+const PAINT: Record<string, Color> = { c: 'claude', o: '#E8913A' }
 const solid = (text: string, key: string): Row => [text, key.repeat(text.length)]
 
 // Clawd, the Claude Code crab. Each mood swaps his top row (eyes) and arms.
@@ -42,15 +42,13 @@ const clawd = (eyes: string, arms: 'up' | 'down'): Frame => [
   solid('  ▘▘ ▝▝  ', 'c'),
 ]
 
-// A sitting orange capybara facing right, with a box head and yellow overalls (strap, bib, pants).
+// A sitting orange capybara facing right, with a box head.
 // Each mood swaps its eye (a notch in the head) and front leg (resting or lifted).
 const capybara = (eye: string, leg: 'rest' | 'up'): Frame => [
-  ['     ▄▄▄█▄▄▄', 'oooooooooooo'],
-  [` ▄▄█████${eye}███`, 'oooooyoooooo'],
-  ['▐███████▛▀▀▀', 'ooyyyyyyoooo'],
-  leg === 'up'
-    ? ['▝██▀▀▀▀▀▜▖  ', 'oyyyyyyyoooo']
-    : ['▝██▀▀▀█▜▌   ', 'oyyyyyyooooo'],
+  solid('     ▄▄▄█▄▄▄', 'o'),
+  solid(` ▄▄█████${eye}███`, 'o'),
+  solid('▐███████▛▀▀▀', 'o'),
+  solid(leg === 'up' ? '▝██▀▀▀▀▀▜▖  ' : '▝██▀▀▀█▜▌   ', 'o'),
 ]
 
 // Splits a row into runs of one color, so each run is a single <Text>.

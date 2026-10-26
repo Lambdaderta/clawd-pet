@@ -1,6 +1,6 @@
 # clawd-pet
 
-A little pet that lives above your prompt in Claude Code: Clawd, the Claude Code crab, or an orange capybara in yellow overalls.
+A little pet that lives above your prompt in Claude Code: Clawd, the Claude Code crab, or an orange capybara.
 
 ```
  ▐▛███▜▌
