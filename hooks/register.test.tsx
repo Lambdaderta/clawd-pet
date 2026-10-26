@@ -75,3 +75,12 @@ test('/pet task sets the label shown under the pet', async ($, on) => {
   expect((await ui.find({ type: 'Text', text: /Task 1: baselines/ }))?.text).toContain('5h 12%')
   await ui.unmount()
 })
+
+test('/pet use switches to the capybara and rejects unknown pets', async ($, on) => {
+  await start($, on, 12)
+  expect((await $.command.run({ command: 'pet', args: 'use dog' })).text).toContain('No pet called')
+  await $.command.run({ command: 'pet', args: 'use capybara' })
+  const ui = await $.ui.mount(BAND)
+  expect(await ui.find({ type: 'Text', text: /▐██/ })).toBeTruthy()
+  await ui.unmount()
+})
